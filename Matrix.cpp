@@ -23,7 +23,45 @@ Matrix::~Matrix() {
     //delete[] **ptr;
 }
 
-void Matrix::add(const Matrix &second, Matrix &result) const {
+Matrix Matrix::operator+(Matrix &m) {
+    return Matrix(0, 0);
+}
+
+Matrix Matrix::operator+=(Matrix &m) {
+    return Matrix(0, 0);
+}
+
+Matrix Matrix::operator+=(const int &num) {
+    for (int i = 0; i < rowSize; i++){
+        for (int j = 0; j < colSize; j++){
+            ptr[i][j] = ptr[i][j] + num;
+        }
+        return *this;
+    }
+    return Matrix(0, 0);
+}
+
+Matrix Matrix::operator*(Matrix &m) {
+    return Matrix(0, 0);
+}
+
+Matrix Matrix::operator++() {
+    return Matrix(0, 0);
+}
+
+Matrix operator+(const int &num, const Matrix &m) {
+    return Matrix(0, 0);
+}
+
+/*istream &operator>>(istream &in, const Matrix &m) {
+    return <#initializer#>;
+}
+
+ostream &operator<<(ostream &os, const Matrix &m) {
+    return <#initializer#>;
+}*/
+
+/*void Matrix::add(const Matrix &second, Matrix &result) const {
     cout << "Adding matrix" << endl;
     cout << rowSize << " X " << colSize << endl;
     if(rowSize == second.rowSize && colSize == second.colSize){
@@ -85,4 +123,4 @@ void Matrix::print() const {
         }
         cout << endl;
     }
-}
+}*/

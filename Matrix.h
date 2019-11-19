@@ -5,6 +5,9 @@
 #ifndef MATRIX_MATRIX_H
 #define MATRIX_MATRIX_H
 
+#include <iostream>
+
+using namespace std;
 
 class Matrix
 {
@@ -13,13 +16,16 @@ private:
     int colSize;
     int ** ptr;
 public:
-    Matrix(int rowSize, int colSize);
-    ~Matrix();
-    void add (const Matrix &second, Matrix &result) const;
-    void subtract (const Matrix &second, Matrix &result) const;
-    void multiply (const Matrix &second, Matrix &result) const;
-    void input( ) const;//input the matrix from the keyboard
-    void print() const; //display matrix to the console window
+    Matrix (int rowSize, int colSize);
+    ~Matrix ();
+    Matrix operator + (Matrix & m);
+    Matrix operator += (Matrix & m);
+    Matrix operator += (const int &num);
+    Matrix operator * (Matrix & m);
+    Matrix operator ++();
+    friend Matrix operator +(const int &num, const Matrix &m);
+    friend istream& operator>> (istream& in, const Matrix& m);
+    friend ostream &operator<<(ostream &os, const Matrix &m);
 };
 
 
